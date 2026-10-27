@@ -45,6 +45,9 @@ services:
     volumes:
       # 本地改代码即时生效（可选）：
       - ./app:/app/app
+      # 让 seed / reset 脚本能在容器内直接执行，不依赖本机 Python 环境
+      - ./scripts:/app/scripts
+      - ./data:/app/data
 
 volumes:
   pgdata:
