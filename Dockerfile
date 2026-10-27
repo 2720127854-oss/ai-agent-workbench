@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential gcc && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# 国内加速：使用清华 PyPI 镜像（国外源常被墙/超时），通用源兜底
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    --extra-index-url https://pypi.org/simple -r requirements.txt
 
 COPY . .
 

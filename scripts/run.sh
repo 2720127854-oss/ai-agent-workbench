@@ -7,7 +7,11 @@ cd "$(dirname "$0")/.."
 # 1) 准备 .env（已存在则跳过）
 if [ ! -f .env ]; then
   cp .env.example .env
-  echo "已生成 .env，请打开填入 OPENAI_API_KEY 并把 embedding_provider 设为 openai"
+  echo "已生成 .env，请打开填入密钥："
+  echo "  1) 填 DEEPSEEK_API_KEY（国内可直连 api.deepseek.com，无需翻墙；推荐）"
+  echo "  2) embedding_provider 保持默认 fake 即可零依赖跑通全链路（无需下载模型）"
+  echo "     - 想跑真实中文 RAG：设 embedding_provider=openai（需 OPENAI_API_KEY，国内需代理）"
+  echo "     - 或设 embedding_provider=bge（需先装 sentence-transformers 并下载中文权重）"
 fi
 
 # 2) 起 Postgres + Redis + API

@@ -2,8 +2,10 @@
 
 前置条件：
   - PostgreSQL(pgvector) 与 Redis 可连（docker compose 已起或本地已装）
-  - .env 中 embedding_provider 已设为 openai 或 bge（真实中文 RAG）
-    —— 用 openai 时确保 OPENAI_API_KEY 已填
+  - embedding_provider 可设为 fake / openai / bge 任一：
+      fake（默认）= 确定性伪向量，零依赖即可跑通全链路（检索为哈希模拟，非语义相关）
+      openai     = 真实中文 embeddings（需 OPENAI_API_KEY，国内需代理）
+      bge        = 本地 BGE 中文向量（需 sentence-transformers 与模型权重）
 
 运行： python scripts/seed_demo.py
 """
