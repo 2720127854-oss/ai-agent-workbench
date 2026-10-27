@@ -1,0 +1,22 @@
+# 核心 Web 框架
+fastapi>=0.110
+uvicorn[standard]>=0.27
+sse-starlette>=2.0
+python-multipart>=0.0.9
+
+# 配置与数据模型
+pydantic>=2.6
+pydantic-settings>=2.2
+
+# LLM / Agent（兼容 OpenAI 协议的供应商均可接）
+openai>=1.30
+langchain-openai>=0.1
+langgraph>=0.2
+langchain-core>=0.2
+
+# 存储
+asyncpg>=0.29
+redis>=5.0
+
+# 可选：本地 BGE 中文向量化（use_bge=true 时安装）
+# sentence-transformers>=2.5

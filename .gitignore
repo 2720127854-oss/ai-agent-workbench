@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+# 本地运行产生的数据/产物（演示文档与评测集 data/demo、data/eval 需要入库，不要忽略）
+*.db
+.cache/
+__pycache__/
